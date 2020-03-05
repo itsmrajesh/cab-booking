@@ -11,6 +11,5 @@ public class Cabdriver {
 
 	private String name;
 	private int age;
-	private String email, phone, dlid, carname, vechileno, route, address, status="Pending";
-
+	private String email, phone, dlid, carname, vechileno,address, status="Pending";
 }

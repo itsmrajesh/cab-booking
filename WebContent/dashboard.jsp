@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,46 +15,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="navbar.css" />
+<link rel="stylesheet" type="text/css" href="navbar.css" />
+
 <title>Dashboard</title>
 <style>
-
-
-@charset "ISO-8859-1";
-#club {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	border-collapse: collapse;
-	width: 50%;
-}
-
-#club td, #club th {
-	border: 1px solid #ddd;
-	padding: 7px;
-}
-
-#club tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
-
-#club tr:nth-child(odd) {
-	background-color: #f2f2f2;
-}
-
-#club td {
-	text-align: center;
-}
-
-#club tr:hover {
-	background-color: #ddd;
-}
-
-#club th {
-	padding-top: 12px;
-	padding-bottom: 12px;
-	text-align: center;
-	background-color: #4d97a5;
-	color: white;
-}
 </style>
 </head>
 <body>
@@ -63,50 +28,70 @@
 
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="#home" class="active">Home</a>
+			<a href="dashboard" class="active">Home</a>
 		</div>
 
 		<!-- Left-aligned links (default) -->
-		<a href="#news"><i class="fa fa-car" aria-hidden="true"></i>My
-			Rides</a> <a href="#contact"><i class="fa fa-fw fa-envelope"></i>Contact</a>
+		<a href="myrides"><i class="fa fa-car" aria-hidden="true"></i>My
+			Rides</a> <a href="contactus.html"><i class="fa fa-fw fa-envelope"></i>Contact
+			US</a> <a href="myprofile"><i class="fa fa-fw fa-user"></i>My Profile</a>
 
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
 			<a href="#search"><i class="fa fa-fw fa-search"></i>Search</a> <a
-				href="#about"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+				href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 		</div>
 	</div>
 
 	<div style="padding-left: 16px"></div>
+
+
+	<div>
+		<h1 color:"white" align="center">
+			<%
+				out.println("Welcome " + session.getAttribute("name").toString().toUpperCase());
+			%>
+			</h1>
+	
+	</div>
 
 	<div class="container">
 
 		<div class="row">
 			<div class="col-md-6">
 				<!-- Show Booking option -->
-				
-				
+				<form action="checkride">
+					<div class="form-group">
+						<label for="inputState">Available routes</label> <select
+							id="inputState" class="form-control" name="route">
+							<option selected>Choose...</option>
+							<c:forEach items="${routes}" var="route">
+								<option value="${route.route}">${route.route}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary">Book Now</button>
+					<button type="reset" class="btn btn-warning">Reset</button>
+				</form>
 			</div>
 			<div class="col-md-6">
-				<!-- Show user details -->
-				
-				<table id="club">
+				<h3>Our Services </h3>
+				<table id="route" class="table table-striped">
 				<tr>
-				<th>Name</th>
-				<td></td>
-				</tr>
-				
-				<tr>
-				<th>Email</th>
-				<td></td>
+					<th>Route</th>
+					<th>Distance</th>
+					<th>Fair</th>
 				</tr>
 				<tr>
-				<th>Mobile</th>
-				<td></td>
+					<c:forEach items="${routes}" var="route">
+						<tr>
+							<td>${route.route}</td>
+							<td>${route.kms}</td>
+							<td>${route.fair}</td>
+						</tr>
+					</c:forEach>
 				</tr>
-				
-				</table>
-				
+			</table>
 			</div>
 		</div>
 	</div>

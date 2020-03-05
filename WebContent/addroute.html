@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="navbar.css" />
+<title>Add New Route</title>
+</head>
+<body>
+
+	<div class="topnav">
+		<!-- Centered link -->
+		<div class="topnav-centered">
+			<a href="admin.html" class="active">Admin Home</a>
+		</div>
+
+		<!-- Left-aligned links (default) -->
+		<a href="viewallrides"><i class="fa fa-car" aria-hidden="true"></i>Show
+			all Rides</a> <a href="viewalldrivers"><i class="fa fa-fw fa-user"></i>Show
+			All Drivers</a>
+
+		<!-- Right-aligned links -->
+		<div class="topnav-right">
+			<a href="#search"><i class="fa fa-fw fa-search"></i>Search</a> <a
+				href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+		</div>
+	</div>
+
+	<div class="container">
+
+
+		<div class="row">
+			<div class="col-sm-6">
+				<br>
+
+				<form method="post" action="addnewroute">
+					<div class="form-group">
+						<label for="start">Start</label> <input type="text" name="start"
+							class="form-control" id="start" required>
+					</div>
+
+					<div class="form-group">
+						<label for="end">End</label> <input type="text" name="end"
+							class="form-control" id="end" required>
+					</div>
+
+					<div class="form-group">
+						<label for="kms">Distance (KMS)</label> <input type="number"
+							name="kms" class="form-control" id="kms" required>
+					</div>
+
+					<div class="form-group">
+						<label for="fair">Fair</label> <input type="text"
+							class="form-control" id="fair" placeholder="Optional" value="">
+					</div>
+					<button type="submit" class="btn btn-primary">Add</button>
+					<button type="reset" class="btn btn-warning">Reset</button>
+					<a href="admin.html" class="btn btn-danger">Cancel</a>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
