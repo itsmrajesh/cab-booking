@@ -16,9 +16,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="navbar.css" />
-<link rel="stylesheet" type="text/css" href="usertable.css" />
 
-<title>Ride Info</title>
+<title>Your rides</title>
 <style>
 </style>
 </head>
@@ -26,7 +25,6 @@
 
 	<!-- Top navigation -->
 	<div class="topnav">
-
 		<!-- Centered link -->
 		<div class="topnav-centered">
 			<a href="dashboard" class="active">Home</a>
@@ -45,71 +43,29 @@
 	</div>
 
 
-	<div class="container">
 
-		<div class="row">
-			<div class="col-md-6">
-			<h3>Driver Details</h3>
-				<table id="club" align="left">
-					<c:forEach items="${driver}" var="r">
-						<tr>
-							<th>Name</th>
-							<td>${r.name}</td>
-						</tr>
-						<tr>
-							<th>Age</th>
-							<td>${r.age}</td>
-						</tr>
-						<tr>
-							<th>Phone</th>
-							<td>${r.phone}</td>
-						</tr>
-						<tr>
-							<th>Car</th>
-							<td>${r.carname}</td>
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
-			<div class="col-md-6">
-				<h3>Route info </h3>
-				<table id="route" class="table table-striped">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+		<h3>Your Rides</h3>
+			<table id="route" class="table table-striped">
 				<tr>
 					<th>Route</th>
-					<th>Distance</th>
 					<th>Fair</th>
+					<th>status</th>
 				</tr>
 				<tr>
-					<c:forEach items="${routes}" var="route">
+					<c:forEach items="${rides}" var="ride">
 						<tr>
-							<td>${route.route}</td>
-							<td>${route.kms}</td>
-							<td>${route.fair}</td>
+							<td>${ride.route}</td>
+							<td>${ride.fair}</td>
+							<td>${ride.status}</td>
 						</tr>
 					</c:forEach>
 				</tr>
 			</table>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
-			<a href="confirmbooking"><button class="btn btn-primary">Confirm Booking</button></a>
-			</div>
-			<div class="col-md-4"></div>
-		</div>
-		
-		<div class="row">
-		<br>
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
-			<a href="dashboard"><button class="btn btn-danger">Cancel</button></a>
-			</div>
-			<div class="col-md-4"></div>
 		</div>
 	</div>
-
 
 </body>
 </html>

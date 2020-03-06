@@ -3,6 +3,7 @@ package com.cab.dao;
 import java.util.List;
 
 import com.cab.domain.Cabdriver;
+import com.cab.domain.Ride;
 import com.cab.domain.Route;
 import com.cab.domain.User;
 
@@ -29,6 +30,8 @@ public interface Dao {
 	List<Route> getAllRoutes();
 	
 	boolean assignRoute(Route route,String myRoute);
+	
+	List<Ride> getAllRides();
 	
 	
 }

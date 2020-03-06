@@ -16,7 +16,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="navbar.css" />
-<title>View routes</title>
+<title>View All users</title>
 </head>
 <body>
 
@@ -42,6 +42,7 @@
 	<div class="row">
 	<div class="col-md-2"></div>
 		<div class="col-md-8">
+		<h3>All Users info</h3>
 			<table id="route" class="table table-striped">
 				<tr>
 					<th>Name</th>

@@ -42,10 +42,10 @@
 	<div class="row">
 	<div class="col-md-2"></div>
 		<div class="col-md-8">
+		<h3>All Available routes</h3>
 			<table id="route" class="table table-striped">
 				<tr>
 					<th>Route</th>
-					
 					<th>Distance</th>
 					<th>Fair</th>
 					<th>Update</th>

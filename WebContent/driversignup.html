@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Signup Form</title>
+    <title>Driver Signup Form</title>
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -33,48 +33,49 @@
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Driver Signup From</h2>
-                    <form method="POST">
+                    <form method="POST" action="dsignup">
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Name" name="name">
+                            <input class="input--style-3" type="text" placeholder="Name" name="name" required>
                         </div>
                         <!-- <div class="input-group">
                             <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
                             <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                         </div> -->
                         <div class="input-group">
-                            <input class="input--style-3" type="number" placeholder="Age" name="age">
+                            <input class="input--style-3" type="number" placeholder="Age" name="age" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3" type="email" placeholder="Email" name="email">
+                            <input class="input--style-3" type="email" placeholder="Email" name="email" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Phone" name="phone">
+                            <input class="input--style-3" type="text" placeholder="Phone" name="phone" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="DL Number" name="dlid">
-                        </div>
-                        
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Car Model" name="car">
+                            <input class="input--style-3" type="text" placeholder="DL Number" name="dlid" required>
                         </div>
                         
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Vechile Number" name="vechileno">
+                            <input class="input--style-3" type="text" placeholder="Car Model" name="carname" required>
                         </div>
                         
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Route Ex: Silk board - Hebbal" name="route">
+                            <input class="input--style-3" type="text" placeholder="Vechile Number" name="vechileno" required>
                         </div>
-                        
+                       
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Address" name="address">
+                            <input class="input--style-3" type="text" placeholder="Address" name="address" required>
                         </div>
                         
                         <div class="p-t-10">
                             <button class="btn btn--pill btn--green" type="submit">Signup</button>
                         </div>
                         <div class="p-t-10">
-                            <button class="btn btn--pill btn--primary" type="submit">Login</button>
+                        <a href="driverlogin.html">
+                            <button class="btn btn--pill btn--primary" type="button">Login</button> </a>
+                        </div>
+                        <div class="p-t-10">
+                        <a href="index.html">
+                            <button class="btn btn--pill btn--green" type="button">Home</button> </a>
                         </div>
                     </form>
                 </div>

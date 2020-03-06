@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +14,9 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="navbar.css" />
-<title>Update Driver Status</title>
+<title>ALl Rides</title>
 </head>
 <body>
-
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
@@ -37,31 +34,33 @@
 				href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 		</div>
 	</div>
-
-
-	<div class="container">
-
-
-		<div class="row">
-			<div class="col-sm-6">
-				<br>
-
-				<form method="post" action="updatestatus">
-
-					<div class="form-group">
-						<label for="inputState">Driver</label> <select id="inputState"
-							class="form-control" name="status">
-							<option selected>Choose...</option>
-							<option value="Approved">Approve</option>
-							<option value="Rejected">Reject</option>
-							<option value="Pending">Pending</option>
-						</select>
-					</div>
-					<button type="submit" class="btn btn-primary">Update</button>
-					<button type="reset" class="btn btn-warning">Reset</button>
-					<a href="admin.html" class="btn btn-danger">Cancel</a>
-				</form>
-			</div>
+	
+	
+	<div class="row">
+	
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+	<h2>All Rides info</h2>
+			<table id="route" class="table table-striped">
+				<tr>
+					<th>User Email</th>
+					<th>Driver DL</th>
+					<th>Route</th>
+					<th>Fair</th>
+					<th>status</th>
+				</tr>
+				<tr>
+					<c:forEach items="${rides}" var="ride">
+						<tr>
+							<td>${ride.email}</td>
+							<td>${ride.dlid}</td>
+							<td>${ride.route}</td>
+							<td>${ride.fair}</td>
+							<td>${ride.status}</td>
+						</tr>
+					</c:forEach>
+				</tr>
+			</table>
 		</div>
 	</div>
 

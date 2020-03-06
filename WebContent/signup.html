@@ -11,7 +11,7 @@
 <meta name="keywords" content="Colorlib Templates">
 
 <!-- Title Page-->
-<title>Signup Form</title>
+<title>User Signup Form</title>
 
 <!-- Icons font CSS-->
 <link href="vendor/mdi-font/css/material-design-iconic-font.min.css"
@@ -42,7 +42,7 @@
 					<form method="POST" action="signup">
 						<div class="input-group">
 							<input class="input--style-3" type="text" placeholder="Name"
-								name="name">
+								name="name" required>
 						</div>
 						<!-- <div class="input-group">
                             <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
@@ -60,23 +60,28 @@
 							</div>
 						</div> -->
 						<div class="input-group">
-							<input class="input--style-3" type="email" placeholder="Email"
-								name="email">
+							<input class="input--style-3" type="email"  placeholder="Email"
+								name="email" required>
 						</div>
 						<div class="input-group">
 							<input class="input--style-3" type="text" placeholder="Phone"
-								name="phone">
+								name="phone" required>
 						</div>
 						<div class="input-group">
 							<input class="input--style-3" type="password"
-								placeholder="Password" name="password">
+								placeholder="Password" name="password" required>
 						</div>
 						<div class="p-t-10">
 							<button class="btn btn--pill btn--green" type="submit">Signup</button>
 						</div>
 						<div class="p-t-10">
-							<button class="btn btn--pill btn--primary" type="submit">Login</button>
-						</div>
+                        <a href="login.html">
+                            <button class="btn btn--pill btn--primary" type="button">Login</button> </a>
+                        </div>
+                         <div class="p-t-10">
+                        <a href="index.html">
+                            <button class="btn btn--pill btn--green" type="button">Home</button> </a>
+                        </div>
 					</form>
 				</div>
 			</div>
@@ -94,7 +99,7 @@
 	<script src="js/global.js"></script>
 
 </body>
-<!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 
 </html>
 <!-- end document-->

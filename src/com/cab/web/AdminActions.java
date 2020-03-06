@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.cab.dao.Dao;
 import com.cab.dao.DaoImpl;
 import com.cab.domain.Cabdriver;
+import com.cab.domain.Ride;
 import com.cab.domain.Route;
 import com.cab.domain.User;
 
@@ -127,7 +128,7 @@ public class AdminActions extends HttpServlet {
 		} else if (url.endsWith("updatestatus")) {
 			String status = request.getParameter("status");
 			String dlid = session.getAttribute("dlid").toString();
-			if (dao.updateStatus(dlid, status)) {
+			if (dao.updateStatus(dlid, status.toLowerCase())) {
 				message = "Status updated succesfully";
 				session.setAttribute("message", message);
 				response.sendRedirect("adminmsg.jsp");
@@ -136,6 +137,11 @@ public class AdminActions extends HttpServlet {
 				session.setAttribute("message", message);
 				response.sendRedirect("adminmsg.jsp");
 			}
+		} else if(url.endsWith("viewallrides")) {
+			List<Ride> allRides = dao.getAllRides();
+			request.setAttribute("rides", allRides);
+			RequestDispatcher rd = request.getRequestDispatcher("allrides.jsp");
+			rd.forward(request, response);
 		}
 	}
 

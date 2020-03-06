@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.cab.dbutil.DBUtil;
 import com.cab.domain.Cabdriver;
+import com.cab.domain.Ride;
 import com.cab.domain.Route;
 import com.cab.domain.User;
 
@@ -72,7 +73,6 @@ public class DaoImpl implements Dao {
 			pst.setString(9, cab.getStatus());
 			int count = pst.executeUpdate();
 			if (count == 1) {
-				driverInit(cab.getDlid(),"null");
 				return true;
 			}
 
@@ -92,7 +92,7 @@ public class DaoImpl implements Dao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
@@ -218,6 +218,8 @@ public class DaoImpl implements Dao {
 			pst.setString(2, dlid);
 			int count = pst.executeUpdate();
 			if (count == 1) {
+				if (status.equalsIgnoreCase("approved"))
+					driverInit(dlid, "null");
 				return true;
 			}
 		} catch (SQLException e) {
@@ -244,4 +246,23 @@ public class DaoImpl implements Dao {
 		return null;
 	}
 
+	@Override
+	public List<Ride> getAllRides() {
+		String sql = "SELECT * FROM userrides";
+		List<Ride> list = new ArrayList<>();
+		Ride ride = null;
+		try {
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				ride = Ride.builder().dlid(rs.getString("DLID")).route(rs.getString("route")).fair(rs.getDouble("fair"))
+						.status(rs.getString("status")).email(rs.getString("email")).build();
+				list.add(ride);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
