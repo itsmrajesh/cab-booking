@@ -20,8 +20,8 @@ public enum DBUtil {
 	public Connection getConnection() {
 		String dbName = "cabdb";
 		String url = "jdbc:mysql://localhost:3306/" + dbName + "?autoReconnect=true&useSSL=false";
-		String userName = "rajesh";
-		String password = "mysql123";
+		String userName = "root";
+		String password = "root";
 		try {
 			con = DriverManager.getConnection(url, userName, password);
 		} catch (SQLException e) {
