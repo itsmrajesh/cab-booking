@@ -63,7 +63,8 @@ public class DriverActions extends HttpServlet {
 				session.setAttribute("ddlid", dlid);
 				response.sendRedirect("driverdashboard");
 			}else {
-				session.setAttribute("dmsg", "Invalid Login");
+				String message = "Invalid Login! <br>New User, Signup: <a href='driversignup.html'> Click Here </a>";
+				session.setAttribute("dmsg", message);
 				response.sendRedirect("dmsg.jsp");
 			}
 		} else if (url.endsWith("driverdashboard")) {

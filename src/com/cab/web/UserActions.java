@@ -68,7 +68,10 @@ public class UserActions extends HttpServlet {
 				session.setAttribute("email", email);
 				response.sendRedirect("dashboard");
 			} else {
-				response.sendRedirect("invalidlogin.html");
+				String errorMsg = "Invalid Login!! <br> New User, Signup: <a href='signup.html'> Click Here </a>";
+				errorMsg += "<br> Login : <a href='login.html'> Click Here </a>";
+				session.setAttribute("dmsg", errorMsg);
+				response.sendRedirect("dmsg.jsp");
 			}
 		} else if (url.endsWith("dashboard")) {
 			List<Route> avalRoutes = dao.getAllRoutes();
