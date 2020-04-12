@@ -56,8 +56,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	private String getAvalDriver() {
-		String sql = "SELECT DLID FROM avaldrivers where status = 'null' ";
-
+		String sql = "SELECT DLID FROM avaldrivers where status = 'aval' ";
 		try {
 			st = con.createStatement();
 			rs = st.executeQuery(sql);
@@ -67,7 +66,6 @@ public class UserDaoImpl implements UserDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return null;
 	}
 

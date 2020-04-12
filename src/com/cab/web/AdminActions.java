@@ -133,7 +133,7 @@ public class AdminActions extends HttpServlet {
 				session.setAttribute("message", message);
 				response.sendRedirect("adminmsg.jsp");
 			} else {
-				message = "Some thing went wrong";
+				message = "Some thing went wrong,Please try again";
 				session.setAttribute("message", message);
 				response.sendRedirect("adminmsg.jsp");
 			}

@@ -78,7 +78,7 @@ public class DriverActions extends HttpServlet {
 			rd.forward(request, response);
 		} else if (url.endsWith("endridedriver")) {
 			String dlid = session.getAttribute("ddlid").toString();
-			ddao.assignDriver(dlid, "null");
+			ddao.assignDriver(dlid, "aval");
 			ddao.endRide(dlid);
 			response.sendRedirect("enduserride");
 		}else if(url.endsWith("driverrides")) {

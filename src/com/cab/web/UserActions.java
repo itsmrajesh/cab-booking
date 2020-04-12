@@ -56,6 +56,10 @@ public class UserActions extends HttpServlet {
 						+ " you have successfully signup, go Login now <a href='login.html'>click here</a> ";
 				session.setAttribute("usermessage", message);
 				response.sendRedirect("showstatus.jsp");
+			} else {
+				message = "Hey " + name + " you have already signup, go Login now <a href='login.html'>click here</a> ";
+				session.setAttribute("usermessage", message);
+				response.sendRedirect("showstatus.jsp");
 			}
 		} else if (url.endsWith("login")) {
 			String email = request.getParameter("email");
@@ -99,8 +103,14 @@ public class UserActions extends HttpServlet {
 					routeList.add(routeObj);
 					request.setAttribute("driver", driverList);
 					request.setAttribute("routes", routeList);
+					try {
 					RequestDispatcher rd = request.getRequestDispatcher("rideinfo.jsp");
-					rd.forward(request, response);
+						rd.forward(request, response);
+					} catch (IllegalStateException e) {
+						message = "No cabs available to ride now, try later <br> Please Logout and restart your app soory for trouble";
+						session.setAttribute("usermessage", message);
+						response.sendRedirect("showstatus.jsp");
+					}
 				}
 			} else {
 				message = "Your are already in ride...";

@@ -33,6 +33,7 @@ public class DaoImpl implements Dao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
 		return false;
 	}
@@ -73,6 +74,7 @@ public class DaoImpl implements Dao {
 			pst.setString(9, cab.getStatus());
 			int count = pst.executeUpdate();
 			if (count == 1) {
+				driverInit(cab.getDlid(), "null");
 				return true;
 			}
 
@@ -218,14 +220,29 @@ public class DaoImpl implements Dao {
 			pst.setString(2, dlid);
 			int count = pst.executeUpdate();
 			if (count == 1) {
-				if (status.equalsIgnoreCase("approved"))
-					driverInit(dlid, "null");
+				if (status.equalsIgnoreCase("approved")) {
+					updateDriverAval(dlid, "aval");
+				} else {
+					updateDriverAval(dlid, "null");
+				}
 				return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	private void updateDriverAval(String dlid, String status) {
+		String sql = "UPDATE avaldrivers SET STATUS = ? WHERE DLID = ?";
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, status);
+			pst.setString(2, dlid);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
