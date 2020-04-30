@@ -40,13 +40,13 @@ public class AdminActions extends HttpServlet {
 			dlid = request.getParameter("dlid");
 			int kms = Integer.parseInt(request.getParameter("kms"));
 			String fairStr = request.getParameter("fair");
-			double fair = kms * 2.5;
+			double fair = getFare(kms);
 			try {
 				if (fairStr.length() > 0) {
 					fair = Double.parseDouble(fairStr);
 				}
 			} catch (NullPointerException e) {
-				fair = kms * 10.5;
+				fair = getFare(kms); 
 			}
 			Route routeObj = new Route(route, kms, fair);
 			if (dao.addNewRoute(routeObj)) {
@@ -98,14 +98,20 @@ public class AdminActions extends HttpServlet {
 			int kms = Integer.parseInt(request.getParameter("kms"));
 			String dlid = request.getParameter("dlid");
 			String fairStr = request.getParameter("fair");
-			double fair = Double.parseDouble(fairStr);
-			Route routeObj = new Route(route,kms, fair);
+			double fair = getFare(kms);
+			try {
+				fair = Double.parseDouble(fairStr);
+			}catch (Exception e) {
+				e.printStackTrace();
+				fair = getFare(kms);
+			}
+			Route routeObj = new Route(route, kms, fair);
 			String myRoute = session.getAttribute("myroute").toString();
 			if (dao.assignRoute(routeObj, myRoute)) {
 				message = "Route updated successfully ";
 				session.setAttribute("message", message);
 				response.sendRedirect("adminmsg.jsp");
-			}else {
+			} else {
 				message = "Route updated failed ";
 				session.setAttribute("message", message);
 				response.sendRedirect("adminmsg.jsp");
@@ -137,12 +143,18 @@ public class AdminActions extends HttpServlet {
 				session.setAttribute("message", message);
 				response.sendRedirect("adminmsg.jsp");
 			}
-		} else if(url.endsWith("viewallrides")) {
+		} else if (url.endsWith("viewallrides")) {
 			List<Ride> allRides = dao.getAllRides();
 			request.setAttribute("rides", allRides);
 			RequestDispatcher rd = request.getRequestDispatcher("allrides.jsp");
 			rd.forward(request, response);
 		}
+	}
+
+	private double getFare(int kms) {
+		final double pricePerKm = 16.0;
+
+		return kms * pricePerKm;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -46,7 +46,7 @@
 					<th>User Email</th>
 					<th>Driver DL</th>
 					<th>Route</th>
-					<th>Fair</th>
+					<th>Fare</th>
 					<th>status</th>
 				</tr>
 				<tr>

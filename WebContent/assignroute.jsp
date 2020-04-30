@@ -66,7 +66,7 @@
 					</div> -->
 
 					<div class="form-group">
-						<label for="fair">Fair</label> <input type="text" name="fair"
+						<label for="fair">Fare</label> <input type="text" name="fair"
 							class="form-control" id="fair" placeholder="Optional"
 							value=${route.fair}>
 					</div>

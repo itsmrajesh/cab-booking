@@ -51,7 +51,7 @@
 			<table id="route" class="table table-striped">
 				<tr>
 					<th>Route</th>
-					<th>Fair</th>
+					<th>Fare</th>
 					<th>status</th>
 				</tr>
 				<tr>

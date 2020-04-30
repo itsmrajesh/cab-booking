@@ -47,7 +47,7 @@
 				<tr>
 					<th>Route</th>
 					<th>Distance</th>
-					<th>Fair</th>
+					<th>Fare</th>
 					<th>Update</th>
 				</tr>
 				<tr>

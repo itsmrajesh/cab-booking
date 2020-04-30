@@ -72,7 +72,7 @@
 						<td>${ride.route}</td>
 					</tr>
 					<tr>
-						<th>Fair</th>
+						<th>Fare</th>
 						<td>${ride.fair}</td>
 					</tr>
 

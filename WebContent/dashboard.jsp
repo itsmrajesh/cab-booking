@@ -80,7 +80,7 @@
 				<tr>
 					<th>Route</th>
 					<th>Distance</th>
-					<th>Fair</th>
+					<th>Fare</th>
 				</tr>
 				<tr>
 					<c:forEach items="${routes}" var="route">

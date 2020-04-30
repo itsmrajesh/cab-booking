@@ -104,12 +104,14 @@ public class UserActions extends HttpServlet {
 					request.setAttribute("driver", driverList);
 					request.setAttribute("routes", routeList);
 					try {
-					RequestDispatcher rd = request.getRequestDispatcher("rideinfo.jsp");
+						RequestDispatcher rd = request.getRequestDispatcher("rideinfo.jsp");
 						rd.forward(request, response);
 					} catch (IllegalStateException e) {
 						message = "No cabs available to ride now, try later <br> Please Logout and restart your app soory for trouble";
 						session.setAttribute("usermessage", message);
-						response.sendRedirect("showstatus.jsp");
+						RequestDispatcher rdTemp = request.getRequestDispatcher("showstatus.jsp");
+						rdTemp.forward(request, response);
+
 					}
 				}
 			} else {
